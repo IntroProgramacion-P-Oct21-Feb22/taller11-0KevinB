@@ -18,23 +18,27 @@ public class Ejemplo12 {
         Scanner entrada = new Scanner(System.in);
         String mensaje;
         System.out.println("Ingrese 1 para ingresar una persona. Ingrese 2"
-                + " para ingresar una institución");
+                + " para ingresar una institución.  Ingrese 3 para una ciudad");
         int tipo = entrada.nextInt();
-        if(tipo==1){
+        if (tipo == 1) {
             mensaje = ingresarPersona();
-        }else{
-            if (tipo==2) {
+        } else {
+            if (tipo == 2) {
                 mensaje = ingresarInstitucion();
-            }else{
-                mensaje = "opción incorrecta";
+            } else {
+                if (tipo == 3) {
+                    mensaje = ingresarCiudad();
+                } else {
+                    mensaje = "opción incorrecta";
+                }
             }
+
+            System.out.printf("%s\n", mensaje);
+
         }
-        
-        System.out.printf("%s\n", mensaje);
-        
     }
-        
-    public static String ingresarPersona(){
+
+    public static String ingresarPersona() {
         Scanner entrada = new Scanner(System.in);
         String nombre;
         String apellido;
@@ -46,17 +50,17 @@ public class Ejemplo12 {
         apellido = entrada.nextLine();
         System.out.println("Ingrese ciclo");
         ciclo = entrada.nextLine();
-        cadena = String.format("%sEstudiante: %s-%s-%s\n", 
-                cadena, 
-                nombre, 
+        cadena = String.format("%sEstudiante: %s-%s-%s\n",
+                cadena,
+                nombre,
                 apellido,
                 ciclo);
-        return cadena;        
+        return cadena;
     }
-    
-    public static String ingresarInstitucion(){
+
+    public static String ingresarInstitucion() {
         Scanner entrada = new Scanner(System.in);
-        
+
         String nombre;
         String localidad;
         String cadena = "";
@@ -64,11 +68,27 @@ public class Ejemplo12 {
         nombre = entrada.nextLine();
         System.out.println("Ingrese localidad");
         localidad = entrada.nextLine();
-        cadena = String.format("%sInstitución: %s-%s\n", 
-                cadena, 
-                nombre, 
+        cadena = String.format("%sInstitución: %s-%s\n",
+                cadena,
+                nombre,
                 localidad);
+        return cadena;
+    }
+        public static String ingresarCiudad(){
+        Scanner entrada = new Scanner(System.in);
+        
+        String ciudad;
+        String poblacion;
+        String cadena = "";
+        System.out.println("Ingrese nombre de la ciudad");
+        ciudad = entrada.nextLine();
+        System.out.println("Ingrese el numero de habitantes");
+        poblacion = entrada.nextLine();
+        cadena = String.format("%sInstitución: %s-%s habitantes\n", 
+                cadena, 
+                ciudad, 
+                poblacion);
         return cadena;        
     }
-    
+
 }
